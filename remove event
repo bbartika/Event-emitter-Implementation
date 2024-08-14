@@ -1,0 +1,19 @@
+const EventEmitter = require('events');
+const myEmitter = new EventEmitter();
+
+// Listener function
+function greetOnce() {
+    console.log('This will only be logged once');
+}
+
+// Adding the listener
+myEmitter.on('greet', greetOnce);
+
+// Emitting the 'greet' event
+myEmitter.emit('greet');
+
+// Removing the listener
+myEmitter.removeListener('greet', greetOnce);
+
+// Emitting the 'greet' event again (this time nothing will happen)
+myEmitter.emit('greet');
